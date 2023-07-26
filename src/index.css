@@ -1,0 +1,153 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #242424;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+p,
+h3,
+h1 {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  gap: 1rem 2rem;
+}
+
+@media (min-width: 480px) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .books {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .books {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.book {
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+}
+
+.book.disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+
+.book:hover {
+  transform: scale(1.03);
+}
+
+.book.disabled:hover {
+  transform: none;
+}
+
+.book img {
+  width: 100%;
+  aspect-ratio: 9/14;
+  border-radius: 14px;
+}
+
+.book .title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.book .author {
+  color: #adadad;
+}
+
+.reading__list-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #3c3b3b;
+  width: max-content;
+  height: 100vh;
+  padding: 40px;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.reading__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 300px;
+}
+
+.reading__list li {
+  position: relative;
+}
+
+.reading__list li button {
+  position: absolute;
+  right: -5px;
+  padding: 5px 8px;
+  background: #fff;
+  border-radius: 4px;
+  top: -8px;
+  cursor: pointer;
+}
+
+.reading__list img {
+  width: 150px;
+  aspect-ratio: 9/14;
+  border-radius: 14px;
+}
+
+.reading__list-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+  z-index: 99;
+  padding: 5px;
+}
+
+.reading__list-button:hover {
+  transform: scale(1.1);
+}
